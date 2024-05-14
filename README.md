@@ -12,6 +12,6 @@ Requirements
 TODO
 ---
 
-- Move to MVC architecture
-- Separate out Admin and Librarian Panel
-- Rework on layouts(?)
+- [ ] Move to MVC architecture
+- [ ] Separate out Admin and Librarian Panel
+- [ ] Rework on layouts(?)
