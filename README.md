@@ -1,17 +1,13 @@
-Library Management System
--------
+## Library Management System
 
 This is a simple Java application based on Swing.
 
-Requirements
----
+## Requirements
+
 - Java SDK 17
 - MySQL Connector v8.3.0
 
+## TODO
 
-TODO
----
-
-- [ ] Move to MVC architecture
 - [ ] Separate out Admin and Librarian Panel
 - [ ] Rework on layouts(?)
