@@ -17,7 +17,7 @@ public class LibrarianController {
     Statement statement;
 
     String user = "root";
-    String password = "root";
+    String password = "Password@123";
     String host = "localhost";
     int port = 3306;
 
@@ -30,7 +30,9 @@ public class LibrarianController {
         this.view = view;
         getConnection();
     }
-
+    public LibrarianController(){
+        getConnection();
+    }
     private void getConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
