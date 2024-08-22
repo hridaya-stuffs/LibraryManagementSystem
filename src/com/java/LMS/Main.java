@@ -7,7 +7,7 @@ import com.java.LMS.view.LibrarianView;
 public class Main {
     public static void main(String[] args) {
         LibrarianModel librarianModel = new LibrarianModel();
-        LibrarianView librarianView = new LibrarianView(new LibrarianController()); // Temporary null, will be set by controller
+        LibrarianView librarianView = new LibrarianView(new LibrarianController()); // manually added the controller
         LibrarianController librarianController = new LibrarianController(librarianModel, librarianView);
 
         // Set the controller in the view

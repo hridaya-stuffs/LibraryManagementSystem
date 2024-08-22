@@ -32,7 +32,7 @@ public class LibrarianController {
     }
     public LibrarianController(){
         getConnection();
-    }
+    } // added this constructor
     private void getConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -45,6 +45,10 @@ public class LibrarianController {
 
     public void createBook(String id, String title, String author, String price) {
         try {
+            if(isBookExist(id)){
+                JOptionPane.showMessageDialog(null, "Book already exists");
+                return;
+            }
             String sql = "INSERT INTO books (id, title, author, price) VALUES('" + id + "','" + title + "','" + author + "','" + price + "')";
             statement.execute(sql);
             JOptionPane.showMessageDialog(null, "Data Inserted Successfully");
@@ -55,6 +59,10 @@ public class LibrarianController {
 
     public void updateBook(String id, String title, String author, String price) {
         try {
+            if(!isBookExist(id)){
+                JOptionPane.showMessageDialog(null, "Book does not exist");
+                return;
+            }
             String sql = "UPDATE books SET title='" + title + "', author='" + author + "', price='" + price + "' WHERE id='" + id + "'";
             statement.execute(sql);
             JOptionPane.showMessageDialog(null, "Data Updated Successfully");
@@ -81,5 +89,16 @@ public class LibrarianController {
             JOptionPane.showMessageDialog(null, e);
         }
         return null;
+    }
+
+    public boolean isBookExist(String id){
+        try{
+            String sql = "SELECT * FROM books WHERE id='" + id + "'";
+            ResultSet resultSet = statement.executeQuery(sql);
+            return resultSet.next(); // returns true if the result set is not empty
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return false; //returns false if the result set is empty
     }
 }
