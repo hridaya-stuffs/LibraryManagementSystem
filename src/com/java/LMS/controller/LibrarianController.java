@@ -73,6 +73,10 @@ public class LibrarianController {
 
     public void deleteBook(String id) {
         try {
+            if(!isBookExist(id)){
+                JOptionPane.showMessageDialog(null, "Book does not exist");
+                return;
+            }
             String sql = "DELETE FROM books WHERE id='" + id + "'";
             statement.execute(sql);
             JOptionPane.showMessageDialog(null, "Data Deleted Successfully");
